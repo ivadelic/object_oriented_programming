@@ -1,0 +1,19 @@
+Rover
+
+---state---
+point (x,y)
+direction
+
+---behaviour----
+move 
+turn left 
+turn right
+
+Domain modelling
+1. What are the things? ==> classes 
+real world objects
+bank software branch, account etc
+
+2. How do I describe them? ==> state and instance variables
+
+3. What behaviours do they have? ==>  methods 
