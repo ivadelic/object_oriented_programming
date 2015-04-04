@@ -22,8 +22,9 @@ class Instructor<Person
 		end
 end
 
-# puts Instructor.new("Chris").to_s
-# puts Student.new("Cristina").to_s
+instructor_name = Instructor.new("Chris").to_s
+student_name = Student.new("Cristina").to_s
 
 
-puts Student.new.teach #There is no way of making this work because we're not following the line of inheritance. 'Student' class parent is 'Person' not 'Instructor'.
+# puts Student.new.teach 
+##There is no way of making this work because we're not following the line of inheritance. 'Student' class parent is 'Person' not 'Instructor'.
