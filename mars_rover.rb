@@ -1,5 +1,17 @@
+class Plateau		
+	def initialize(max_x,max_y)
+		$max_x = max_x
+		$max_y = max_y
+		$min_x = 0
+		$min_y = 0 
+	end
+	def to_s
+		puts "The plateau is #{$max_x} by #{$max_y}."
+	end
+end
 
 class Rover
+
 	def initialize(init_x, init_y, init_direction)
 		@x = init_x
 		@y = init_y
@@ -7,7 +19,7 @@ class Rover
 	end
 
 	def turn_left
-		if @direction == "N"
+		if @direction == "N" &&
 			@direction = "W"
 		elsif @direction == "W"
 			@direction = "S"
@@ -44,53 +56,56 @@ class Rover
 
 	def read_instructions(user_input)
 		commands = user_input.split(//)
-		commands.each do |turn|
-			if turn == "M"
+		commands.each do |a|
+			if a == "M"
 				move_forward
-			elsif turn == "L"
+			elsif a == "L"
 				turn_left
-			elsif turn == "R"
+			elsif a == "R"
 				turn_right
 			else return "We do not accept these directions."
 			end
 		end
 	end
-		def to_s
+
+
+
+	def to_s
 		"I am at #{@x}, #{@y}, facing #{@direction}."
 	end
 end
 
-# class Plateau		
-# 	def initialize(max_x,max_y)
-# 		@max_x=max_x
-# 		@max_y=max_y
-# 	end
 
-# 	def plateau_x_y
-# 		if @x>=@max_x
-# 			puts "YOU'RE OFF THE GRID! PULL BACK ON THE Y AXIS, MAN."
-# 		elsif @y>=max_y
-# 			puts "YOU'RE GONNA FALL OFF THE PLATEAU!"
-# 		else put to_s
-# 		end
-# 	end
-# end
+	def plateau
+		if $x>=@max_x
+			puts "YOU'RE OFF THE GRID! PULL BACK ON THE Y AXIS, MAN."
+		elsif @y>=max_y
+			puts "YOU'RE GONNA FALL OFF THE PLATEAU!"
+		else put to_s
+		end
+	end
+end
 
 rover1 = Rover.new(0,0,"N")
+rover2 = Rover.new(2,2,"W")
 # plateau_max = Plateau.new(5,5)
 # rover1.plateau_max
-puts "Rover 1 started at these coordinates: #{rover1}"
-puts "M is move forward, L is move 'Left' and R is move 'Right.' Give rover1 five directions for it to follow."
-user_instructions=gets.chomp
-rover1_read=rover1.read_instructions("#{user_instructions}")
-puts "Rover 1 has now moved: #{rover1}"
-
-rover2 = Rover.new(0,0,"N")
-puts "Rover 2 started at these coordinates: #{rover2}"
-puts "M is move forward, L is move 'Left' and R is move 'Right.' Give rover2 five direction for it to follow."
+puts "Rover 1 started at these coordinates: #{rover1}; and Rover2 at #{rover2}."
+puts "M is move forward, L is turn 'Left' and R is turn 'Right.' Give rover1 five directions for it to follow."
+user_instructions1=gets.chomp
+puts "Now give five instruction for Rover 2"
 user_instructions2=gets.chomp
-rover2_read = rover2.read_instructions("#{user_instructions2}")
-puts "Rover 2 has now moved: #{rover2}"
+rover1_read=rover1.read_instructions("#{user_instructions1}")
+rover2_read=rover2.read_instructions("#{user_instructions2}")
+puts "Rover 1 has now moved: #{rover1} and Rover 2 has moved:#{rover2}"
+
+
+# rover2 = Rover.new(0,0,"N")
+# puts "Rover 2 started at these coordinates: #{rover2}"
+# puts "M is move forward, L is move 'Left' and R is move 'Right.' Give rover2 five direction for it to follow."
+# rover2_read = rover2.read_instructions("#{user_instructions2}")
+# user_instructions2=gets.chomp
+# puts "Rover 2 has now moved: #{rover2}"
 
 
 
