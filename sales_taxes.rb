@@ -20,19 +20,17 @@ class Reciept
 	def output_1
 		# puts "#{@amount} #{@item}: #{@cost}"
 		# @total = @total*0.5
-		puts "First Output: For #{@amount} #{@item}: Your total is $#{@total.round(0.01)}."
+		puts "First Output: For #{@amount} #{@item}: Your total is $#{@total.round(1).to_f}."
 	end
 
 	def output_2
 		# puts "#{@amount} #{@item}: #{@cost}"
-		# @total = @total*0.5
-		puts "Second Output: For #{@amount} #{@item}: Your total is $#{@total.round(0.01)}."
+		puts "Second Output: For #{@amount} #{@item}: Your total is $#{@total.round(1).to_f}."
 	end
 
 		def output_3
 		# puts "#{@amount} #{@item}: #{@cost}"
-		# @total = @total*0.5
-		puts "Third Output: For #{@amount} #{@item}: Your total is $#{@total.round(0.01)}."
+		puts "Third Output: For #{@amount} #{@item}: Your total is $#{@total.round(1).to_f}."
 	end
 
 end
