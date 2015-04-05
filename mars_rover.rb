@@ -1,15 +1,3 @@
-class Plateau		
-	def initialize(max_x,max_y)
-		$max_x = max_x
-		$max_y = max_y
-		$min_x = 0
-		$min_y = 0 
-	end
-	def to_s
-		puts "The plateau is #{$max_x} by #{$max_y}."
-	end
-end
-
 class Rover
 
 	def initialize(init_x, init_y, init_direction)
@@ -19,7 +7,7 @@ class Rover
 	end
 
 	def turn_left
-		if @direction == "N" &&
+		if @direction == "N" 
 			@direction = "W"
 		elsif @direction == "W"
 			@direction = "S"
@@ -68,18 +56,27 @@ class Rover
 		end
 	end
 
-
-
 	def to_s
 		"I am at #{@x}, #{@y}, facing #{@direction}."
 	end
 end
 
+class Plateau		
+	def initialize(max_x,max_y)
+		$max_x = max_x
+		$max_y = max_y
+		$min_x = 0
+		$min_y = 0 
+	end
+
+	def to_s
+		puts "The plateau is #{$max_x} by #{$max_y}."
+	end
 
 	def plateau
-		if $x>=@max_x
+		if @x>=$max_x
 			puts "YOU'RE OFF THE GRID! PULL BACK ON THE Y AXIS, MAN."
-		elsif @y>=max_y
+		elsif @y>=$max_y
 			puts "YOU'RE GONNA FALL OFF THE PLATEAU!"
 		else put to_s
 		end
@@ -88,19 +85,20 @@ end
 
 rover1 = Rover.new(0,0,"N")
 rover2 = Rover.new(2,2,"W")
-# plateau_max = Plateau.new(5,5)
-# rover1.plateau_max
-puts "Rover 1 started at these coordinates: #{rover1}; and Rover2 at #{rover2}."
+plateau_max = Plateau.new(5,5)
+plateau_max.plateau
+
+puts "Rover 1 started at these coordinates: #{rover1}."
 puts "M is move forward, L is turn 'Left' and R is turn 'Right.' Give rover1 five directions for it to follow."
 user_instructions1=gets.chomp
-puts "Now give five instruction for Rover 2"
-user_instructions2=gets.chomp
 rover1_read=rover1.read_instructions("#{user_instructions1}")
-rover2_read=rover2.read_instructions("#{user_instructions2}")
-puts "Rover 1 has now moved: #{rover1} and Rover 2 has moved:#{rover2}"
+rover1_read.plateau_max
+puts "Rover 1 has now moved: #{rover1}."
 
 
-# rover2 = Rover.new(0,0,"N")
+
+
+## rover2 = Rover.new(0,0,"N")
 # puts "Rover 2 started at these coordinates: #{rover2}"
 # puts "M is move forward, L is move 'Left' and R is move 'Right.' Give rover2 five direction for it to follow."
 # rover2_read = rover2.read_instructions("#{user_instructions2}")
@@ -108,23 +106,6 @@ puts "Rover 1 has now moved: #{rover1} and Rover 2 has moved:#{rover2}"
 # puts "Rover 2 has now moved: #{rover2}"
 
 
-
-
-
-# if @x>=@max_width
-# 	puts "YOU'RE OFF THE PLATEAU! Pull back on the y axis!"
-# 	elsif @y>=@max_length
-# 	puts "YOU'RE GONNA FALL OF THE PLATEAU! Go back on the x axis!"
-# 	else puts to_s
-# end
-# end
-
-# rover1 = Rover.new(0,0, "N")
-# puts "(Rover 1 started at these coordinates: #{rover1})"
-
-
-# rover1.read_instructions("MMLLRRMMMM")
-# puts "Rover 1 has now moved: #{rover1}"
 
 # # rover_2= Rover.new
 
